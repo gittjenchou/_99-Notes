@@ -1,0 +1,144 @@
+
+
+GRADIENT DESCENT
+Gradient descent is an optimization algorithm used to find the values of parameters of a function that minimizes a cost function.
+Gradient descent is best used when the parameters cannot be calculated analytically and must be searched for by an optimization algorithm.
+The intuition for this: 
+-- we start from one point, the constant.
+-- we calculate the cost function using that starting point
+-- we check to which direction the cost function would be minimal, this is the slope or derivatives
+-- using that direction we get the slope, and then update the constant, recalculate the cost function
+-- we iterate this until we get no improvement in minimalizing cost function
+Based on the way it works, we can differentiate two gradient descent:
+-- Batch gradient descent: where constant and cost function is updated post evaluating all slopes for all attributes
+-- Stochastic gradient descent : where constant and cost function is updates post evaluating each slope for an attribute but the update is randomize.
+
+
+REGRESSION TYPE
+-- Linear Regression
+-- Logistic Regression
+-- Polynomial Regression
+-- Stepwise Regression
+-- Ridge Regression
+-- Lasso Regression
+-- ElasticNet Regression
+
+The difference of techniques are mostly driven by three metrics:
+-- number of independent variables,
+-- type of dependent variables and
+-- shape of regression line
+We can also see that some of them have different OLS.
+For example: 
+Lasso Regression: where Ordinary Least Squares is modified to also minimize the absolute sum of the coefficients (called L1 regularization).
+Ridge Regression: where Ordinary Least Squares is modified to also minimize the squared absolute sum of the coefficients (called L2 regularization).
+These methods are effective to use when there is collinearity in your input values and ordinary least squares would overfit the training data.
+
+
+LINEAR REGRESSION
+There must be linear relationship between independent and dependent variables
+Multiple regression suffers from multicollinearity, autocorrelation, heteroskedasticity.
+Linear Regression is very sensitive to Outliers. It can terribly affect the regression line and eventually the forecasted values.
+Multicollinearity can increase the variance of the coefficient estimates and make the estimates very sensitive to minor changes in the model. 
+The result is that the coefficient estimates are unstable.
+In case of multiple independent variables, we can go with forward selection, backward elimination and step wise approach for selection of most significant independent variables.
+Parameters can be easily accomplished by Least Square Method. 
+It calculates the best-fit line for the observed data by minimizing the sum of the squares of the vertical deviations from each data point to the line. 
+We can evaluate the model performance using the metric R-square.
+Linear regression will make more reliable predictions if your input and output variables have a Gaussian distribution. 
+You may get some benefit using transforms (e.g. log or BoxCox) on your variables to make their distribution more Gaussian looking.
+Linear regression will often make more reliable predictions if you rescale input variables using standardization or normalization.
+
+
+LOGISTIC REGRESSION
+Parameters are chosen to maximize the likelihood of observing the sample values rather than minimizing the sum of squared errors (like in ordinary regression).
+This means coefficients of the logistic regression algorithm area estimated using maximum-likelihood estimation.
+??? Logistic regression doesn’t require linear relationship between dependent and independent variables.
+??? It can handle various types of relationships because it applies a non-linear log transformation to the predicted odds ratio.
+To avoid over fitting and under fitting, we should include all significant variables.
+A good approach to ensure this practice is to use a step wise method to estimate the logistic regression
+It requires large sample sizes because maximum likelihood estimates are less powerful at low sample sizes than ordinary least square
+The independent variables should not be correlated with each other i.e. no multi collinearity.
+If dependent variable is multi class then it is known as Multinomial Logistic regression.
+Linear regression will make more reliable predictions if your input and output variables have a Gaussian distribution.
+Logistic regression can become unstable when the classes are well separated.
+Logistic regression can become unstable when there are few examples from which to estimate the parameters.
+
+
+LINEAR DISCRIMINANT ANALYSIS
+address multiclass classification problems, only for categorical (output) variable.
+The representation of LDA is pretty straight forward. It consists of statistical properties of your data, calculated for each class. 
+For a single input variable ( x ) this is the mean and the variance of the variable for each class.
+For multiple variables, the same properties calculated over the multivariate Gaussian, namely the means and the covariance matrix (this is a multi-dimensional generalization of variance).
+These statistical properties are estimated from your data and plug into the LDA equation to make predictions.
+Here, automatically, LDA only talks about linear relationship between input and output.
+LDA makes some simplifying assumptions about your data:
+-- That your data is Gaussian, that each variable is shaped like a bell curve when plotted.
+-- That each attribute has the same variance, that values of each variable vary around the mean by the same amount on average.
+LDA makes predictions by estimating the probability that a new set of inputs belongs to each class. 
+The class that gets the highest probability is the output class and a prediction is made.
+The model uses Bayes Theorem to estimate the probabilities.
+It’s almost always a good idea to standardize your data before using LDA so that it has a mean of 0 and a standard deviation of 1.
+Variant of LDA are:
+-- Quadratic DA: Each class uses its own estimate of variance (or covariance when there are multiple input variables).
+-- Flexible DA: Where nonlinear combination of inputs is used such as splines.
+-- Regularized DA: Introduces regularization into the estimate of the variance (or covariance), moderating the influence of different variables on LDA.
+The original development was called the Linear Discriminant or Fisher’s Discriminant Analysis. 
+The multiclass version was referred to Multiple Discriminant Analysis.
+
+
+WEIGHTED LEAST SQUARES REGRESSION
+One of the common assumptions underlying most process modeling methods, including linear and nonlinear least squares regression, is that 
+each data point provides equally precise information about the deterministic part of the total process variation.
+In other words, the standard deviation of the error term is constant over all values of the predictor or explanatory variables. 
+Remember that when performing linear regression, we assume the form would be Y = a + bX + u
+u here is the unknown form that we admit still unknown to us and will give error in our result
+This assumption, however, clearly does not hold, even approximately, in every modeling application. 
+For example, in the semiconductor photomask linespacing data shown below, it appears that the precision of the linespacing measurements
+decreases as the line spacing increases. 
+In situations like this, when it may not be reasonable to assume that every observation should be treated equally, 
+weighted least squares can often be used to maximize the efficiency of parameter estimation. 
+This is done by attempting to give each data point its proper amount of influence over the parameter estimates. 
+A procedure that treats all of the data equally would give less precisely measured points more influence than 
+they should have and would give highly precise points too little influence
+
+
+MODEL-SELECTION METHODS LINEAR REGRESSION
+-- NONE 
+-- no selection. This method is the default and uses the full model given in the MODEL statement to fit the linear regression. 
+-- FORWARD 
+-- This method starts with no variables in the model and adds variables one by one to the model. 
+-- At each step, the variable added -- is the one that maximizes the fit of the model. 
+-- BACKWARD 
+-- This method starts with a full model and eliminates variables one by one from the model. 
+-- At each step, the variable with the smallest contribution to the model is deleted.
+-- STEPWISE 
+-- forward and backward. 
+-- This method is a modification of the forward-selection method in that variables already in the model do not necessarily stay there. 
+-- MAXR 
+-- maximum R2 improvement. 
+-- This method tries to find the best one-variable model, the best two-variable model, and so on. 
+-- The MAXR method differs from the STEPWISE method in that many more models are evaluated with MAXR, 
+-- which considers all switches before making any switch. 
+-- The STEPWISE method may remove the "worst" variable without considering what the "best" remaining variable might accomplish, 
+-- whereas MAXR would consider what the "best" remaining variable might accomplish. 
+-- Consequently, MAXR typically takes much longer to run than STEPWISE. 
+-- MINR 
+-- This method closely resembles MAXR, but the switch chosen is the one that produces the smallest increase in R2. 
+-- RSQUARE 
+-- finds a specified number of models having the highest R2 in each of a range of model sizes. 
+-- CP 
+-- finds a specified number of models with the lowest  Mallows's Cp within a range of model sizes. 
+-- Mallows's Cp addresses the issue of overfitting, 
+-- in which model selection statistics such as the residual sum of squares always get smaller as more variables are added to a model. 
+-- Thus, if we aim to select the model giving the smallest residual sum of squares, the model including all variables would always be selected.
+-- Instead, the Cp statistic calculated on a sample of data estimates the mean squared prediction error (MSPE) as its population target
+-- The Cp criterion suffers from two main limitations :
+-- -- the Cp approximation is only valid for large sample size;
+-- -- the Cp cannot handle complex collections of models as in the variable selection (or feature selection) problem.
+-- ADJRSQ 
+-- finds a specified number of models having the highest adjusted R2 within a range of model sizes. 
+
+
+HYPERGEOMETRIC DISTRIBUTION 
+distr taking k success in n draws without replacement
+highlight on : sub-populations are over- or under-represented in a sample
