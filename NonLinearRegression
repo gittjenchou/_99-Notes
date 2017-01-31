@@ -1,0 +1,8 @@
+
+
+NONLINEAR REGRESSION PROCEDURE 
+implements iterative methods that attempt to find least-squares estimates for nonlinear models.
+The default method is Gauss-Newton, although several other methods, such as Newton and Marquardt, are available.
+You must specify parameter names, starting values, and expressions for the model.
+Grid search is also available to select starting values for the parameters. 
+Since nonlinear models are often difficult to estimate, PROC NLIN may not always find the globally optimal least-squares estimates
