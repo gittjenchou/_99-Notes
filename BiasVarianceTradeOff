@@ -1,0 +1,26 @@
+
+
+BIAS VARIANCE TRADE-OFF, OVERFITTING
+
+That bias refers to the simplifying assumptions made by the algorithm to make the problem easier to solve.
+That variance refers to the sensitivity of a model to changes to the training data.
+The prediction error for any machine learning algorithm can be broken down into three parts:
+-- Bias Error
+-- Variance Error
+-- Irreducible Error
+
+Low Bias: Suggests less assumptions about the form of the target function.
+High-Bias: Suggests more assumptions about the form of the target function.
+Low Variance : Suggests small changes to the estimate of the target function with changes to the training dataset.
+High Variance : Suggests large changes to the estimate of the target function with changes to the training dataset.
+There is no escaping the relationship between bias and variance in machine learning.
+-- Increasing the bias will decrease the variance.
+-- Increasing the variance will decrease the bias.
+
+Tacking overfitting issue with:
+-- resampling methods and 
+-- using a validation dataset
+
+The most popular resampling technique is k-fold cross validation. 
+It allows you to train and test your model k-times on different subsets of training data and build up an estimate of the performance of a machine learning model on unseen data.
+A validation dataset is simply a subset of your training data that you hold back from your machine learning algorithms until the very end of your project.
