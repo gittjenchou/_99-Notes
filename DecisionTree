@@ -1,0 +1,55 @@
+
+
+CLASSIFICATION AND REGRESSION TREES (CART)
+The representation for the CART model is a binary tree.
+use Gini for cost function
+The recursive binary splitting procedure described above needs to know when to stop splitting as it works its way down the tree with the training data.
+The most common stopping procedure is to use a minimum count on the number of training attributes assigned to each leaf node. 
+If the count is less than some minimum then the split is not accepted and the node is taken as a final leaf node.
+The count of training members is tuned to the dataset, e.g. 5 or 10. 
+It defines how specific to the training data the tree will be. 
+Too specific (e.g. a count of 1) and the tree will overfit the training data and likely have poor performance on the test set.
+You can use pruning after learning your tree to further lift performance. The complexity of a decision tree is defined as the number of splits in the tree.
+This means trees are now removed to improve performance.
+Simpler trees are preferred. They are easy to understand and less likely to overfit your data.
+The fastest and simplest pruning method is to work through each leaf node in the tree and evaluate the effect of removing it using a hold-out test set.
+Leaf nodes are removed only if it results in a drop in the overall cost function on the entire test set. 
+You stop removing nodes when no further improvements can be made. 
+More sophisticated pruning methods can be used such as cost complexity pruning (also called weakest link pruning).
+In this method a learning parameter (alpha) is used to weigh whether nodes can be removed based on the size of the sub-tree.
+
+
+CHI-SQUARED AUTOMATIC INTERACTION DETECTOR (CHAID)
+CHAID is a type of decision tree technique, based upon adjusted significance testing (Bonferroni testing). 
+Like other decision trees, CHAID's advantages are that its output is highly visual and easy to interpret. Because it uses multiway splits by default, it needs rather large sample sizes to work effectively, since with small sample sizes the respondent groups can quickly become too small for reliable analysis.
+One important advantage of CHAID over alternatives such as multiple regression is that it is non-parametric.
+
+
+HUNT'S ALGORITHM in DECISION TREE
+Characteristics:
+-- Greedy fashion, thus locally optimal but computationally effective
+Attribute to be split: use binary split for both numerical and categorical attributes.
+Things to consider when split: ordinal attribute's order must be retained.
+Criteria for best split: use misclassification error, Gini, and entrophy.
+Remember when splitting, the process has not yet finished. Question what do we call classification in misclassification here?
+When to stop splitting: choose based on business needs, not to over-fit and under-fit.
+Gini : measure of impurity 
+-- 1-sum of conditional probability^2 (basically transformation so that if one split contains zero records is pure, and half-half would be half-pure also)
+-- Used in CART, SLIQ, SPRINT.
+Eventually misclassification error, Gini, and Entropy are all transformation that will describe impurity, in which:
+-- 50:50 composition will be transformed to max (1) resulted to impurity 1-1 = 0 and
+-- extreme right and extreme left composition will be resuled to almost 0, impurity almost 1 
+Decision trees can be unstable because small variations in the data might result in a completely different tree being generated.
+What matters from decision tree is how many predicted compared to actual, which can be described as ROC.
+Recall          : True Positive / (TP + FN)
+Precision       : TP / (TP + FP) 
+Accuracy        : (TP+TN) / (TP+FN + TN+FP)
+False negative  : Error Type I in which actual (H0) is True (Yes) but rejected (predicted No)
+False positive  : Error Type II in which actual (H0) is False (N) but accepted (predicted Yes)
+Think False negative as False predicting Negative result in H0 (negative result as H0)
+Think False positive as False predicting Positive result in H0 (positive result as H0)
+What better is to combine these two measurement in weighted called F-measure: 2*Recall*Precision/(Recall+Precision)
+Check Information Retrieval in wikipedia
+ROC plot True Positive Rate (in Y-axis) vs. False Positive Rate (in X-axis)
+TPR             : TP / (TP+FN)
+FPR             : FP / (FP+TN)
