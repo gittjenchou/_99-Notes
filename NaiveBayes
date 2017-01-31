@@ -1,0 +1,19 @@
+
+
+NAIVE BAYES
+start with null hypothesis, assuming given the data null hypothesis is true, what is the probability of someting conditional to known data
+calculate posterior probability of several different hypothesis, pick the highest one
+selected hypothesis with highest posterior probability will be treated as null hypothesis
+re-iterate the process
+Naive Bayes is a classification algorithm for binary (two-class) and multiclass classification problems.
+It is called naive Bayes or idiot Bayes because the calculation of the probabilities for each hypothesis are simplified to make their calculation tractable. 
+Rather than attempting to calculate the values of each attribute value P ( d 1 ,d 2 ,d 3 |h ), they are assumed to be conditionally independent given the target value and calculated as P ( d 1 |h ) × P ( d 2 |h ) and so on. 
+This is a very strong assumption that is most unlikely in real data, i.e. that the attributes do not interact.
+Nevertheless, the approach performs surprisingly well on data where this assumption does not hold.
+A list of probabilities is stored to file for a learned naive Bayes model. This includes:
+-- Class Probabilities: The probabilities of each class in the training dataset.
+-- Conditional Probabilities: The conditional probabilities of each input value given each class value.
+For discrete, probabilities could use frequency
+For continuous data, most commonly assume a Gaussian distribution. This extension of naive Bayes is called Gaussian Naive Bayes. 
+Sometimes this assumption with Gaussian distribution is called kernel function.
+Of course we can use other function if we want.
