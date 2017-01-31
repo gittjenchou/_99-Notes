@@ -1,0 +1,20 @@
+
+
+LEARNING VECTOR QUANTIZATION
+It supports both binary (two-class) and multiclass classification problems.
+The technique mainly use for data compression.
+Imagine you have n attributes which create n-dimensional data.
+From your data, it will find the code vector which can represents all records.
+Number of code vector is not necessary n.
+Usually each code vector will be given an index.
+Basically all records will be assigned to nearest code vector and that code vector will represent that record later.
+The label of code vector is called code word.
+Also imagine that in n-dimensional data, separation made by all of the code vector will build a n-dimensional region, which will be called Vornoi Region.
+Imagine 2-dimensional data, and there is 16 code vectors (line). These lines will make a region, limited by 2-dimensional border.
+Predictions are made using the LVQ codebook vectors in the same way as KNN.
+Typically predictions are made with k = 1, and the codebook vector that matches is called the Best Matching Unit (BMU).
+This means each records assigned one (k) code vector, the closest code vector.
+To determine which of the k instances in the training dataset are most similar to a new input a distance measure is used. 
+For real-valued input variables, the most popular distance measure is Euclidean distance. 
+Euclidean distance is calculated as the square root of the sum of the squared differences between a point a and point b across all records.
+The process is continued by updating the code vector untill we get the code vector with minimal distance to all data points.
