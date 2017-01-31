@@ -1,0 +1,42 @@
+
+
+SUPPORT VECTOR MACHINE
+The idea is to find plane that can separate your data. 
+But because it's a plane, then it can only separate binary classes, thus binary classification.
+The best plane would be the plane with the largest margin.
+And the margin is the distance of two parallel lines on either side of the classes.
+Say line 1 is the furthest line from plane which closest to the data in class I.
+Line 2 is the furthers line from plane which closest to the data in class II.
+The problem in the SVM becomes the problem to maximize the margin.
+When the classes are not linearly separated then we can introduce slack variable.
+Slack variable basically giving penalty for containing data points which are not linearly separated.
+Other than that, other data points are linearly separated.
+If the plane that is needed to separate classes is not linear, then we need to perform transformation to variables.
+Pay attention to default plane in each algorithm, it could be not linear like in R.
+Maximal-Margin Classifier
+Above the line, the equation returns a value greater than 0 and the point belongs to the first class (class 0).
+Below the line, the equation returns a value less than 0 and the point belongs to the second class (class 1).
+A value close to the line returns a value close to zero and the point may be difficult to classify.
+If the magnitude of the value is large, the model may have more confidence in the prediction.
+The constraint of maximizing the margin of the line that separates the classes must be relaxed.
+This is often called the soft margin classifier.
+This change allows some points in the training data to violate the separating line.
+An additional set of coefficients are introduced that give the margin wiggle room in each dimension.
+These coefficients are sometimes called slack variables.
+
+This increases the complexity of the model as there are more parameters for the model to fit to the data to provide this complexity.
+A tuning parameter is introduced called simply C that defines the magnitude of the wiggle allowed across all dimensions.
+The C parameters defines the amount of violation of the margin allowed.
+C = 0 is no violation and we are back to the inflexible Maximal-Margin Classifier described above.
+The larger the value of C the more violations of the hyperplane are permitted.
+During the learning of the hyperplane from data, all training instances that lie within the distance of the margin will affect the placement of the hyperplane and are referred to as support vectors.
+And as C affects the number of instances that are allowed to fall within the margin, C influences the number of support vectors used by the model.
+The smaller the value of C, the more sensitive the algorithm is to the training data (higher variance and lower bias).
+The larger the value of C, the less sensitive the algorithm is to the training data (lower variance and higher bias).
+
+The SVM algorithm is implemented in practice using a kernel. The learning of the hyperplane in linear SVM is done by transforming the problem using some linear algebra.
+A powerful insight is that the linear SVM can be rephrased using the inner product of any two given observations, rather than the observations themselves.
+In this case ,learning the kernel function is not necessary to be linear always:
+-- Linear Kernel SVM
+-- Polynomial Kernel SVM
+-- Radial Kernel SVM
