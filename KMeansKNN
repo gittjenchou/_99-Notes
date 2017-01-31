@@ -1,0 +1,37 @@
+
+
+K-NEAREST NEIGHBOR
+Compute distance to other training records.
+Identify k nearest neighbors.
+Use class labels of nearest neighbors to determine the class label of unknown record.
+Selection of K
+-- Bigger k would result in capturing more noise.
+-- Lower k would result in 
+To determine class from neighbor:
+-- take the majority vote of class labels among the knearest neighbors
+-- Weigh the vote according to distance, e.g.: weight factor, w = 1/d^2
+Choosing distance measure: choosing the correct distance function is essential
+-- euclidean measure
+-- -- curse of dimensionality
+-- -- can produce counter-intuitive results (two sets of a pair of vector can be resulted to the same euclidean distance)
+-- hamming : calculate the distance between binary vectors.
+-- manhattan (city block distance): calculate the distance between real vectors using the sum of their absolute difference.
+-- minkowski : generalization of euclidean and manhattan distance
+-- mahalanobis
+-- simple matching coefficient
+-- jaccard measure
+-- tanimoto coefficient
+-- cosine measure
+You can choose the best distance metric based on the properties of your data. 
+If you are unsure, you can experiment with different distance metrics and different values of k together and see which mix results in the most accurate models.
+Euclidean is a good distance measure to use if the input variables are similar in type (e.g. all measured widths and heights).
+Manhattan distance is a good measure to use if the input variables are not similar in type (such as age, gender, height, etc.).
+KNN will suffer from high dimension data since it needs to calculate distance measurement from all attributes.
+KNN also needs standarization of data since distance will be affected by unit of the data.
+
+
+K-MEANS
+Select k cluster centroid
+Assign each data points to nearest selected cluster centroid
+Recalculate cluster centroid
+Repeat till centroid not changed
