@@ -1,0 +1,68 @@
+
+
+PAIRED TEST
+when observation in a test is related to to observation in other test, then it's paired
+e.g. before after training, check improvement of driving skill by measuring driving errors
+usually instead of the difference of sample mean, we derive one variable, diff of attr 1 to attr 2, and test that statistics
+
+
+??? WILCOXON SIGNED TEST
+
+
+??? SIGN TEST
+
+
+population  --> sample (the distribution of sample is called sample distribution)
+statistics  --> sample statistics (the distribution of sample statistics is called sampling distribution)
+Central Limit Theorem speaks about sampling distribution, normally distributed across mean population and spreading by population sdev/sqrt(n)
+This spread of sampling dist is called standard error, with most of the case population sdev is replaced by sample sdev
+Conditions that should be met for CLT:
+-- sampled obsv must be independent, and to make sure this cond obtained, do random sampling and take less than 10% of population
+-- when taking more than 10% sample, chance is higher to take independent obsvs
+-- sample size more than 30
+And because of sampling distribution is normal, we can speak about 68%, 95%, and 99% interval that contains its mean, which is population mean.
+This becomes the idea for confidence interval.
+Remember that we have point estimate, which is our sample statistics mean, and from this we can talk about interval that contains population mean.
+This means, for different sample, we have diff point estimate, and diff conf.interval.
+Therefore don't think that conf.interval is rigid, it contains something, does not mean that it should be between certain lower and upper bound.
+There is no certain thing when estimating population from sample.
+When specifiying 1.96*sample sdev/sqrt(n), we actually speak about margin of error.
+The same concept can be applied to other estimator, as long as it meets the condition which is the distr of sampling distribution is normal.
+Proven estimator with normal sampling distr are:
+-- sample mean
+-- diff of sample mean
+-- sample proportion
+-- diff of sample proportion
+Remember that 0.05 significance level is complementary to 95% confidence level.
+Only have to be cautious with one-tailed or two-tailed concept. CL = 1-alpha for two--tailed and CL = 1-2alpha for one-tailed
+For one tailed is multipled with two as confidence interval spacing out left and right extreme interval. 
+type I error    :   reject null hypo when it's true
+type II error   :   reject alt hypo when it's true
+
+
+COCHRAN–MANTEL–HAENSZEL TEST
+-- usage                :   test when you have data from 2×2 tables that you've repeated at different times or locations. 
+--                      :   It will tell you whether you have a consistent difference in proportions across the repeats.
+-- The null hypothesis  :   the relative proportions of one variable are independent of the other variable within the repeats
+--                      :   in other words, there is no consistent difference in proportions in the 2×2 tables.
+-- case example         :   the null hypothesis would be that the proportion of people feeling pain 
+--                          was the same for legwarmer-wearers and non-legwarmer wearers, across winter and summer data (test).
+-- keyword              :   2x2 comparison across different sample data (different test)
+
+
+FISHER'S EXACT TEST
+-- usage                :   when you have two nominal variables. 
+--                      :   You want to know whether the proportions for one variable are different among values of the other variable. 
+-- notes                :   Fisher's exact test is more accurate than the chi-square test or G–test of independence 
+--                          when the expected numbers are small, e.gh. the total sample size is less than 1000
+-- The null hypothesis  :   the relative proportions of one variable are independent of the second variable
+--                      :   in other words, the proportions at one variable are the same for different values of the second variable
+-- keyword              :   2x2 comparison across different sample data (different test)
+
+
+MCNEMAR'S TEST
+-- consider             :   2x2 contigency table
+--                      :                       test #02 positive       test #02 negative
+--                      : test #01 positive                     a                       b
+--                      : test #02 negative                     c                       d
+-- The null hypothesis  :   Ho : pb = pc (pa + pb = pa + pc and pc + pd = pb + pd)
