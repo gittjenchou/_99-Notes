@@ -1,0 +1,30 @@
+(1)     Why do we care about nonlinear projections? Well, there are some cases where linear subspaces just aren't good enough.
+(2)     I mentioned before that linear subspaces are almost always useful on any dataset, 
+        but they may not adequately represent the underlying manifold, which may have some other nonlinear structure, right?
+        So, even if I start and am able to project my data linearly down to, say, 20 or 40 dimensions, that still, 
+        I still might be able to find a more efficient representation.
+        That captures the, the models the data even better using a lower dimensional manifold.
+        And that's the idea behind nonlinear dimensionality reduction.
+(3)     When we have non linear problem and we try to map it to a higher subsspace, for example in 2 dimension non linear problem.
+        When you add a third feature to the dataset which is the sum of squared attributes, then, 
+        the results become linearly separable as you see here in the three-dimensional portrayals.
+        So, we're mapping this into a high dimensional space where linear relationships are sufficient.
+        If you were to map that decision boundary that you make in this hard dimensional space back into the lower dimensional space, 
+        you get a nonlinear decision boundary.
+        So, we can actually use all the tools from our linear analysis toolkit in the high dimensional space 
+        and get non linear results in the original space.
+        This is an, an important an important insight, an important intuition, 
+        it is really the foundation of our Kernel principle component analysis.
+(4)     So, what does this look like for KPCA.
+        Kernal PCA takes our training data, it maps it into some higher dimensional features 
+        based where we perform principal component analysis, right?
+        Which in the original data space, it would represented as a nonlinear projection, right?
+        A nonlinear transformation of the data. 
+        If we get some new data point then we can similarly project it into our higher dimensional feature space 
+        and find its low D representation in that new high dimensional feature space.
+        So this is the intuition behind KPCA. 
+        But you might say this is fine but it's kind of contrary to the whole point of dimensionality reduction right?
+        If we're creating these arbitrary new high dimensional feature spaces 
+        doesn't that actually increase rather than reduce the dimensions.
+        It's true it would except we also have the benefit that for KPCA 
+        you don't actually have to do any calculations in the high dimensional feature space.
