@@ -1,0 +1,9 @@
+
+
+
+As illustrated in img:LinearModelLeadToGradientDescent, these are some points for key highlights:
+  1. One has to notice that there is constant on w, the weight or coefficient
+  2. The 2nd line expresses the derivative of the 1st line in order to find its solution
+  3. The last line contains inverse of matrix which could imply to huge computation
+  4. This leads to gradient descent in order to find the solution instead computing it.
+
