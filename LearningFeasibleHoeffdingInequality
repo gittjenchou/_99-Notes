@@ -1,0 +1,47 @@
+This is interesting subject which told us the theory behind whether learning with no assumption on 
+probability function is feasible or not.
+
+In img: LearningFeasibleHoeffdingInequality01, we see that:
+  1. In real cases we have sample data.
+  2. We need to infer unknown function from this data.
+  3. However what we should notice is that we that's a leap of faith when we said that we can infer unknown from sample.
+  
+In img: LearningFeasibleHoeffdingInequality02, we see that:
+  1. In many cases we want that our inference of unknown function has error, epsilon, not exceed certain number.
+  2. That certain number on right side will have to taken for granted, for now. But there is mathematical proof for that.
+  3. However what we should notice from the right side is:
+    a. As sample size N increases, given that epsilon is small, no matter what happened, the number would be close to 1.
+    b. This is because we have epsilon squared there.
+    c. The intuition is so obvious that it can make confusion of the importance of this inequality.
+    d. However this is the very first explanation of learning process.
+  4. We also see there that when inference = unknown, we call that state P.A.C (Probable Approximately Correct).
+  
+In img: LearningFeasibleHoeffdingInequality03, we see that:
+  1. We change a bit notation here. We called inference as a result of our train (in-sample) process.
+  2. And the unknown is a expected value from our test process, from test (out of sample) data.
+  3. Test data supposed to be unknown, at the moment we process training.
+  4. Because it supposed to represent data in the future, thus unknown.
+  5. Basically from one hypothesis, we expect that difference of train and test would be less than something.
+  6. Red and green is basically agreement/disagreement on the inference result with the unknown function.
+  7. Red is disagreement, inference result different from unknown.
+
+In img: LearningFeasibleHoeffdingInequality04, we see that:
+  1. With more hypothesis, there will be more variance of agreement/disagreement.
+  2. However we should notice that Hoeffding inequality only works for a single bin.
+  
+In img: LearningFeasibleHoeffdingInequality05, we see that:
+  1. This is generalization of Hoeffding inequality in multiple bins.
+  2. This affect the number on the right side of inequality, which is sum of many bins.
+
+In img: LearningFeasibleHoeffdingInequality06, we see that:
+  1. The final number, of the right side equation, affected by M (total hypothesis/bins).
+  2. This is to say that when we have a lot of hypothesis, the expected difference would be large.
+  3. The intuition is, as we do more process corresponding with more hypothesis, we would finally find bad event.
+  4. Bad event here is the event having inference is majority wrong.
+  6. That's because we try hard to find it from multiple hypothesis.
+  7. It's the same when flipping ONE coin 5 times, the probability having head 5 times is small.
+  8. But when we try hard to flipping SOME coins 5 times each, having head 5 times is not hard.
+  9. And it's not because the coin is not fair.
+
+At the end we should remember that in the process, we choose only the best hypothesis with minimal error.
+  
