@@ -1,0 +1,22 @@
+Boosting
+  1. Idea :
+    a. Say we have 3 hypothesis with each of them error rate.
+    b. The error rate in the data space could intersect.
+    c. That to say that there could be data points that were predicted false by 3 of them.
+    d. This idea is used by ensemble method that enables prediction from several models, using majority vote maybe.
+    e. Depending on the size of intersection between false prediction, it would affect the result from ensemble.
+    f. In img: BoostingIdea01, we can see that there are areas which are intersection of 3 errors also 2 errors.
+    g. Thus we have area: 
+      (1) all 3 models correct, 
+      (2) 2 models correct (use majority vote here), and 
+      (3) all false (nothing can be done)
+    h. Boosting use this idea.
+    j. Instead of taking majority vote from multiple models, it used "correction" on 1st model.
+    k. Therefore 2nd model is built under optimized selection weight for misclassified data in 1st model.
+    l. 3rd model built under optimized selection weight for misclassified data in 2nd model.
+    m. See img: BoostingIdea02
+    n. At the end, for each iteration we have optimized weight, heavier on misclassified data.
+    o. And also weight for each model to be taken for final model, as seen in img: BoostingIdea03
+
+
+    
