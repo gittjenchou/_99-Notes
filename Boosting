@@ -18,5 +18,4 @@ Boosting
     n. At the end, for each iteration we have optimized weight, heavier on misclassified data.
     o. And also weight for each model to be taken for final model, as seen in img: BoostingIdea03
 
-
     
