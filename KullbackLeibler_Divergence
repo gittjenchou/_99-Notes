@@ -1,0 +1,17 @@
+Kullback Leibler (KL) Divergence is a way to compare two probability distributions.
+
+Suppose we have a distribution we want to bin, to make a simple representation, and we need to make sure whether our binned result is close enough to original distribution. This is to ensure that not much information lose.
+
+In that case, KL divergence could be used. It's denoted as difference in entrophy.
+Therefore if entrophy is formulated as - summation of all probability multiplied by its logarithmic ( P(x).log(P(x)) ), then KL divergence is denoted by P(x)( log(P(x)) - log(Q(x)) ).
+
+It's important to note here that KL divergence is not symetric, therefore 
+
+P(x)( log(P(x)) - log(Q(x)) ) != P(x)( log(Q(x)) - log(P(x)) )
+
+Just as bias-variance trade-off, ones should actually plot where he/she is on the KL difference to optimize it better.
+
+
+Better explanation can be found in :
+https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained
+
