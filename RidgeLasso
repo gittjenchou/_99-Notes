@@ -1,0 +1,25 @@
+Ridge solving Ordinary Least Square (OLS) problem by adding penalty to the cost function.
+This is called least square with L2 regularization.
+
+The penalty would be alpha (regularization strength) multiplied by square of regression weight/parameter.
+
+Imagine if you have 0 = (Y - wX) ^2. 
+Our data points y (predicted value), x (predictor) would be fixed forever.
+Before L2 regularization, we can achive with certain value of weight, say w1
+
+But ever since adding L2 regularization, what we have to minimize at least in the order of (X^2 + alpha).
+If we can imagine the changes, the bowl of quadratic equation becomes larger.
+Solution for (x+1)(2x-3) and (x+1)(3x-3) resulted with different weight, with the latter becomes smaller.
+
+That's the implication of this L2 regularization: parameter becomes smaller or limited.
+The consequence is: bigger alpha, faster the weight will drop.
+
+The same happen when introducing L1 regularization: lasso.
+L1 introduce alpha multiplied by weight.
+This is illustrated in (x+1)(2x+3) and (x+2)(2x+4) resulted with different weight, with the latter becomes smaller.
+
+At then end, L1 will only affect order-1 while L2 affect order-2 in the equation.
+That's why L1 can make the weight goes to zero since first derivation (to solve local minimum) will only affect order-2 part.
+
+
+
