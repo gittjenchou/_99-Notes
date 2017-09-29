@@ -1,8 +1,11 @@
 
 
 SUPPORT VECTOR MACHINE
+
 The idea is to find plane that can separate your data. 
 But because it's a plane, then it can only separate binary classes, thus binary classification.
+For multiple classes, we must implement one vs the rest strategy.
+
 The best plane would be the plane with the largest margin.
 And the margin is the distance of two parallel lines on either side of the classes.
 Say line 1 is the furthest line from plane which closest to the data in class I.
@@ -11,9 +14,11 @@ The problem in the SVM becomes the problem to maximize the margin.
 When the classes are not linearly separated then we can introduce slack variable.
 Slack variable basically giving penalty for containing data points which are not linearly separated.
 Other than that, other data points are linearly separated.
+
 If the plane that is needed to separate classes is not linear, then we need to perform transformation to variables.
 Pay attention to default plane in each algorithm, it could be not linear like in R.
-Maximal-Margin Classifier
+
+SVCM are categorized as Maximal-Margin Classifier
 Above the line, the equation returns a value greater than 0 and the point belongs to the first class (class 0).
 Below the line, the equation returns a value less than 0 and the point belongs to the second class (class 1).
 A value close to the line returns a value close to zero and the point may be difficult to classify.
@@ -40,3 +45,12 @@ In this case ,learning the kernel function is not necessary to be linear always:
 -- Linear Kernel SVM
 -- Polynomial Kernel SVM
 -- Radial Kernel SVM
+
+Support Vector Machine (SVM) is a generalization of Support Vector Classifier (SVC), use Kernel for non-linear decision.
+Decision boundary will be depended on Kernel and parameter chosen.
+
+For loss function: check "Computing CVM Classifier"
+https://en.wikipedia.org/wiki/Support_vector_machine
+
+
+
