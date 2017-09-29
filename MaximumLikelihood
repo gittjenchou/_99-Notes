@@ -24,4 +24,10 @@ Is a parameter estimate that maximizes likelihood (function) observing our data 
 
 That's why MLE is MAP given that the parameter is uniform (fixed).
 
+What has to be noted is the fact that MAP is a point estimate, whereas Bayesian methods are characterized by the use of distributions to summarize data and draw inferences: thus, Bayesian methods tend to report the posterior mean or median instead, together with credible intervals.
+
+
+
 https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation
+
+
