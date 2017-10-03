@@ -1,0 +1,14 @@
+Transformation for features should be performed with a purpose: so the model can learn from that easily.
+That means an understanding on what would be the best option for a specific model would be helpful.
+
+Creating a new features should be based on:
+- business logic
+- a simplification of a feature to contains information about target variable: e.g.: converting to Information Value (IV)
+- thought features: how human interpret something, e.g.: cool, hot, common, rare, etc
+- interaction features: combining feature that makes more sense if standalone
+- when sample data is small, combining values within features may help to strengthen pattern within features.
+- rotation matrix sometimes could help, but relatively harder compared to others since it should be performed on a lot of attribute combinations.
+
+Perfectly correlated variables are truly redundant in the sense that no additional information is gained by adding them.
+A variable that is completely useless by itself can provide a significant performance improvement when taken with others.
+
