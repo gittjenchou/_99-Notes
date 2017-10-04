@@ -1,5 +1,3 @@
-
-
 SUPPORT VECTOR MACHINE
 
 The idea is to find plane that can separate your data. 
@@ -11,14 +9,9 @@ And the margin is the distance of two parallel lines on either side of the class
 Say line 1 is the furthest line from plane which closest to the data in class I.
 Line 2 is the furthers line from plane which closest to the data in class II.
 The problem in the SVM becomes the problem to maximize the margin.
-When the classes are not linearly separated then we can introduce slack variable.
-Slack variable basically giving penalty for containing data points which are not linearly separated.
-Other than that, other data points are linearly separated.
+For this, SVM are categorized as Maximal-Margin Classifier.
+The points that support those parallel lines are called support vector.
 
-If the plane that is needed to separate classes is not linear, then we need to perform transformation to variables.
-Pay attention to default plane in each algorithm, it could be not linear like in R.
-
-SVCM are categorized as Maximal-Margin Classifier
 Above the line, the equation returns a value greater than 0 and the point belongs to the first class (class 0).
 Below the line, the equation returns a value less than 0 and the point belongs to the second class (class 1).
 A value close to the line returns a value close to zero and the point may be difficult to classify.
@@ -26,10 +19,11 @@ If the magnitude of the value is large, the model may have more confidence in th
 The constraint of maximizing the margin of the line that separates the classes must be relaxed.
 This is often called the soft margin classifier.
 This change allows some points in the training data to violate the separating line.
-An additional set of coefficients are introduced that give the margin wiggle room in each dimension.
+Usually this is happened when the classes are not linearly separable.
 These coefficients are sometimes called slack variables.
+Slack variable basically giving penalty for containing data points which are not linearly separated.
+Other than that, other data points are linearly separated.
 
-This increases the complexity of the model as there are more parameters for the model to fit to the data to provide this complexity.
 A tuning parameter is introduced called simply C that defines the magnitude of the wiggle allowed across all dimensions.
 The C parameters defines the amount of violation of the margin allowed.
 C = 0 is no violation and we are back to the inflexible Maximal-Margin Classifier described above.
@@ -38,6 +32,9 @@ During the learning of the hyperplane from data, all training instances that lie
 And as C affects the number of instances that are allowed to fall within the margin, C influences the number of support vectors used by the model.
 The smaller the value of C, the more sensitive the algorithm is to the training data (higher variance and lower bias).
 The larger the value of C, the less sensitive the algorithm is to the training data (lower variance and higher bias).
+
+If the plane that is needed to separate classes is not linear, then we need to perform transformation to variables.
+Pay attention to default plane in each algorithm, it could be not linear like in R.
 
 The SVM algorithm is implemented in practice using a kernel. The learning of the hyperplane in linear SVM is done by transforming the problem using some linear algebra.
 A powerful insight is that the linear SVM can be rephrased using the inner product of any two given observations, rather than the observations themselves.
@@ -49,8 +46,20 @@ In this case ,learning the kernel function is not necessary to be linear always:
 Support Vector Machine (SVM) is a generalization of Support Vector Classifier (SVC), use Kernel for non-linear decision.
 Decision boundary will be depended on Kernel and parameter chosen.
 
+In scikit-learn there are LinearSVC dan SVC (which is the non-linear kernel-based).
+In scikit-learn, support vectors are points with alpha = 0. Why???
+In scikit-learn, alpha are bound up to C. Why?
+Low value of C is a sign of strong regularization, many alpha are non zeros, many support vectors.
+High value of C is a sign of less regularization.
+
+In Gaussian kernel, gamma is a free parameter that control how wide a gaussian kernel is, how far points fall apart to be considered similar.
+- small gamma means even far points can be considered similar
+- large gamma means only close points are considered similar
+
+Understanding C and gamma interaction will decide how a user understand the fitting.
+
 For loss function: check "Computing CVM Classifier"
 https://en.wikipedia.org/wiki/Support_vector_machine
-
+https://www.quora.com/What-are-C-and-gamma-with-regards-to-a-support-vector-machine
 
 
